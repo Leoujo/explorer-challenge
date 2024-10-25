@@ -1,8 +1,8 @@
 html,
 body,
 #root {
-  background: #111316;
-  color: #c5c5c5;
+  background: #26282c;
+  color: #c5c4c7;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   height: 100%;
@@ -10,31 +10,27 @@ body,
   width: 100%;
 }
 
-.projectView {
-  margin: 2rem;
-  border: 1px solid  #313342;
-  width: 350px;
-}
-
-.projectViewHeader {
-  padding: 0.5rem;
-  background-color: #313342;
-  color: white;
-}
-
-.padding {
-  padding: 0.5rem;
-}
-
-.paddingLeft {
-  padding-left: 0.5rem;
-}
-
-
-.flexCenterClickable {
-  padding: 0.10rem;
+.flexContainer {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.15rem;
   cursor: pointer;
+}
+
+.flexBetweenContainer {
+  @extend .flexContainer;
+  justify-content: space-between;
+
+  &:hover {
+    color: white;
+  }
+
+  &:hover .iconPrimary {
+    visibility: visible;
+  }
+}
+
+.iconPrimary {
+  visibility: hidden;
 }

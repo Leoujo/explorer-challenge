@@ -1,16 +1,24 @@
-import React from 'react'
-import DefaultFile from '../../assets/icons/defaultFile'
+import X from '../../assets/icons/x';
+import { getFileIcon } from '../../utils/iconUtils';
+
 
 interface FileItemProps {
-	icon?: JSX.Element,
-	name: string
+	name: string;
+	id: string;
+	deleteItem: (id: string) => void;
 }
 
-export default function FileItem({ icon, name }: FileItemProps) {
+export default function FileItem({ name, id, deleteItem }: FileItemProps) {
+
 	return (
-		<div className='flexCenterClickable'>
-			{icon ? icon : <DefaultFile />}
-			<div>{name}</div>
+		<div className='flexBetweenContainer'>
+			<div className='flexBetweenContainer'>
+				{getFileIcon(name)}
+				<div>{name}</div>
+			</div>
+			<div className='iconPrimary' onClick={() => deleteItem(id)}>
+				<X />
+			</div>
 		</div>
-	)
+	);
 }
