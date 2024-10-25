@@ -9,10 +9,9 @@ interface FileGroupProps {
 	name: string;
 	id: string;
 	children?: TreeNode[];
-	deleteDataById: (id: string) => void;
 }
 
-export default function FileGroup({ name, id, children, deleteDataById }: FileGroupProps) {
+export default function FileGroup({ name, id, children }: FileGroupProps) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const isOpenToggle = () => {
@@ -26,12 +25,11 @@ export default function FileGroup({ name, id, children, deleteDataById }: FileGr
 				name={name}
 				onToggle={isOpenToggle}
 				id={id}
-				deleteDataById={deleteDataById}
 			/>
 
 			{isOpen && (
 				<div className='indent'>
-					<FileList children={children || []} deleteDataById={deleteDataById} />
+					<FileList children={children || []} />
 				</div>
 			)}
 		</>

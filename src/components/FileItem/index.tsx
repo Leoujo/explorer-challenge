@@ -4,17 +4,16 @@ import DeleteIcon from '../common/DeleteIcon';
 interface FileItemProps {
 	id: string;
 	name: string;
-	deleteDataById: (id: string) => void;
 }
 
-export default function FileItem({ name, id, deleteDataById }: FileItemProps) {
+export default function FileItem({ name, id }: FileItemProps) {
 	return (
 		<div className='flexBetween hoverColorChange hoverIconVisible'>
 			<div className='flexStart'>
 				{getFileIcon(name)}
 				<div>{name}</div>
 			</div>
-			<DeleteIcon id={id} deleteDataById={deleteDataById} />
+			<DeleteIcon id={id} />
 		</div>
 	);
 }

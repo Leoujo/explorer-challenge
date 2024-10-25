@@ -1,10 +1,10 @@
 import './index.scss';
 
 import FileList from '../FileList';
-import useFetch from '../../hooks/useFetch';
+import { useDataContext } from '../../context/DataProvider';
 
 export default function ProjectExplorer() {
-	const { data, deleteDataById } = useFetch();
+	const { data } = useDataContext();
 
 	return (
 		<div className='table'>
@@ -13,7 +13,7 @@ export default function ProjectExplorer() {
 			</div>
 			<div className='content'>
 				{data?.children && (
-					<FileList children={data.children} deleteDataById={deleteDataById} />
+					<FileList children={data.children} />
 				)}
 			</div>
 		</div>
