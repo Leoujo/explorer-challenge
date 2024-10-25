@@ -9,3 +9,32 @@ body,
   margin: 0;
   width: 100%;
 }
+
+.projectView {
+  margin: 2rem;
+  border: 1px solid  #313342;
+  width: 350px;
+}
+
+.projectViewHeader {
+  padding: 0.5rem;
+  background-color: #313342;
+  color: white;
+}
+
+.padding {
+  padding: 0.5rem;
+}
+
+.paddingLeft {
+  padding-left: 0.5rem;
+}
+
+
+.flexCenterClickable {
+  padding: 0.10rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
