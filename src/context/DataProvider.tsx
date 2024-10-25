@@ -1,8 +1,11 @@
 import React, { createContext, ReactNode, useContext } from 'react';
 import useFetch from '../hooks/useFetch';
+import { TreeNode } from '../api';
 
 interface DataContextType {
-	data: any;
+	data: TreeNode | null;
+	isLoading: boolean;
+	error: string | null
 	deleteDataById: (id: string) => void;
 }
 
@@ -13,9 +16,9 @@ interface DataProviderProps {
 }
 
 export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
-	const { data, deleteDataById } = useFetch();
+	const { data, deleteDataById, isLoading, error } = useFetch();
 	return (
-		<DataContext.Provider value={{ data, deleteDataById }}>
+		<DataContext.Provider value={{ data, deleteDataById, isLoading, error }}>
 			{children}
 		</DataContext.Provider>
 	);

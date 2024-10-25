@@ -6,11 +6,17 @@ interface DeleteIconProps {
 }
 
 export default function DeleteIcon({ id }: DeleteIconProps) {
-	const { deleteDataById } = useDataContext();
+	const { deleteDataById, isLoading } = useDataContext();
+
+	const handleDelete = () => {
+		if (!isLoading) {
+			deleteDataById(id);
+		}
+	};
 
 	return (
-		<div className='iconOnHover' onClick={() => deleteDataById(id)}>
-			<X />
+		<div className="iconOnHover" onClick={handleDelete} role="button" tabIndex={0} aria-disabled={isLoading}>
+			{isLoading ? <span>...</span> : <X />}
 		</div>
-	)
+	);
 }

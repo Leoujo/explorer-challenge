@@ -1,12 +1,12 @@
 html,
 body,
 #root {
+  margin: 1rem;
   background: #26282c;
   color: #c5c4c7;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   height: 100%;
-  margin: 0;
   width: 100%;
 }
 
@@ -38,4 +38,10 @@ body,
       visibility: visible;
     }
   }
+}
+
+.errorWarning {
+  color: red; 
+	font-weight: bold;
+	display: flex;
 }

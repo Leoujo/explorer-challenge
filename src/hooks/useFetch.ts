@@ -1,42 +1,34 @@
-import { useEffect, useState, useCallback } from "react";
-
+import { useEffect, useState } from "react";
 import api, { TreeNode } from "../api";
 
-// Encapsulates api logic
 export default function useFetch() {
-  const [data, setData] = useState<TreeNode | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+	const [data, setData] = useState<TreeNode | null>(null);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const response = await api.getDirectoryTree();
-        setData(response);
-      } catch (err) {
-        setError("Failed to fetch directory tree.");
-      } finally {
-        setLoading(false);
-      }
-    };
+	// Centralized async handler to manage loading and error states
+	const asyncHandler = async (apiCall: () => Promise<TreeNode>) => {
+		setIsLoading(true);
+		setError(null);
+		try {
+			const response = await apiCall();
+			setData(response);
+		} catch (err) {
+			setError("An error occurred while processing the request.");
+		} finally {
+			setIsLoading(false);
+		}
+	};
 
-    fetchData();
-  }, []);
+	// Fetches data on component mount
+	useEffect(() => {
+		asyncHandler(api.getDirectoryTree);
+	}, []);
 
-  const deleteDataById = useCallback(async (id: string) => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await api.deleteById(id);
-      setData(response);
-    } catch (err) {
-      setError("Failed to delete the item.");
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+	// Deletes data by id and refreshes the data state
+	const deleteDataById = async (id: string) => {
+		await asyncHandler(() => api.deleteById(id));
+	};
 
-  return { data, deleteDataById, loading, error };
+	return { data, deleteDataById, isLoading, error };
 }
