@@ -1,24 +1,20 @@
-import X from '../../assets/icons/x';
 import { getFileIcon } from '../../utils/iconUtils';
-
+import DeleteIcon from '../common/DeleteIcon';
 
 interface FileItemProps {
-	name: string;
 	id: string;
-	deleteItem: (id: string) => void;
+	name: string;
+	deleteDataById: (id: string) => void;
 }
 
-export default function FileItem({ name, id, deleteItem }: FileItemProps) {
-
+export default function FileItem({ name, id, deleteDataById }: FileItemProps) {
 	return (
-		<div className='flexBetweenContainer'>
-			<div className='flexBetweenContainer'>
+		<div className='flexBetween hoverColorChange hoverIconVisible'>
+			<div className='flexStart'>
 				{getFileIcon(name)}
 				<div>{name}</div>
 			</div>
-			<div className='iconPrimary' onClick={() => deleteItem(id)}>
-				<X />
-			</div>
+			<DeleteIcon id={id} deleteDataById={deleteDataById} />
 		</div>
 	);
 }

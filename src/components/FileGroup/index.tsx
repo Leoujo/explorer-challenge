@@ -1,17 +1,18 @@
 import './index.scss';
 import { useState } from 'react';
-import ArrowRight from '../../assets/icons/arrowRight';
-import ArrowDown from '../../assets/icons/arrowDown';
-import FileItem from '../FileItem';
+
+import FileList from '../FileList';
 import { TreeNode } from '../../api';
+import FileGroupHeader from './FileGroupHeader';
 
 interface FileGroupProps {
 	name: string;
+	id: string;
 	children?: TreeNode[];
-	deleteItem: (id: string) => void;
+	deleteDataById: (id: string) => void;
 }
 
-export default function FileGroup({ name, children, deleteItem }: FileGroupProps) {
+export default function FileGroup({ name, id, children, deleteDataById }: FileGroupProps) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const isOpenToggle = () => {
@@ -19,36 +20,20 @@ export default function FileGroup({ name, children, deleteItem }: FileGroupProps
 	};
 
 	return (
-		<div>
-			<div className='flexContainer' onClick={isOpenToggle}>
-				{isOpen ? <ArrowDown /> : <ArrowRight />}
-				<div>{name}</div>
-			</div>
+		<>
+			<FileGroupHeader
+				isOpen={isOpen}
+				name={name}
+				onToggle={isOpenToggle}
+				id={id}
+				deleteDataById={deleteDataById}
+			/>
 
 			{isOpen && (
 				<div className='indent'>
-					{children?.map((file) => {
-						if (file.type === "file") {
-							return (
-								<FileItem
-									key={file.id}
-									name={file.name}
-									id={file.id}
-									deleteItem={deleteItem}
-								/>
-							);
-						}
-						return (
-							<FileGroup
-								key={file.id}
-								name={file.name}
-								children={file.children}
-								deleteItem={deleteItem}
-							/>
-						);
-					})}
+					<FileList children={children || []} deleteDataById={deleteDataById} />
 				</div>
 			)}
-		</div>
+		</>
 	);
 }

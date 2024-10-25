@@ -10,7 +10,7 @@ body,
   width: 100%;
 }
 
-.flexContainer {
+.flexStart {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -18,19 +18,24 @@ body,
   cursor: pointer;
 }
 
-.flexBetweenContainer {
-  @extend .flexContainer;
+.flexBetween {
+  @extend .flexStart;
   justify-content: space-between;
+}
 
+.hoverColorChange {
   &:hover {
     color: white;
   }
-
-  &:hover .iconPrimary {
-    visibility: visible;
-  }
 }
 
-.iconPrimary {
-  visibility: hidden;
+.hoverIconVisible {
+  .iconOnHover {
+    visibility: hidden;
+  }
+  &:hover {
+    .iconOnHover {
+      visibility: visible;
+    }
+  }
 }

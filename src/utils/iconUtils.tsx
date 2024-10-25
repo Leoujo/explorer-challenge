@@ -6,20 +6,17 @@ import ReadmeFile from '../assets/icons/readmeFile';
 import CssFile from '../assets/icons/cssFile';
 import JsFile from '../assets/icons/jsFile';
 
-export const getFileIcon = (name: string) => {
-  if (name.includes('.css')) {
-    return <CssFile />;
-  } else if (name.includes('.js')) {
-    return <JsFile />;
-  } else if (name.includes('.git')) {
-    return <GitFile />;
-  } else if (name.includes('README.md')) {
-    return <ReadmeFile />;
-  } else if (name.includes('yarn')) {
-    return <YarnFile />;
-  } else if (name.includes('.json')) {
-    return <JsonFile />;
-  }
-  return <DefaultFile />;
+const fileIconMap: Record<string, JSX.Element> = {
+  '.css': <CssFile />,
+  '.js': <JsFile />,
+  '.git': <GitFile />,
+  'README.md': <ReadmeFile />,
+  'yarn': <YarnFile />,
+  '.json': <JsonFile />,
 };
 
+// Follows the Open/Closed SOLID principle (should be able to extend without modifying it)
+export const getFileIcon = (name: string): JSX.Element => {
+  const matchedIcon = Object.keys(fileIconMap).find((key) => name.includes(key));
+  return matchedIcon ? fileIconMap[matchedIcon] : <DefaultFile />;
+};

@@ -1,10 +1,10 @@
 import './index.scss';
-import FileItem from '../FileItem';
-import FileGroup from '../FileGroup';
+
+import FileList from '../FileList';
 import useFetch from '../../hooks/useFetch';
 
 export default function ProjectExplorer() {
-	const { data, deleteData } = useFetch();
+	const { data, deleteDataById } = useFetch();
 
 	return (
 		<div className='table'>
@@ -12,22 +12,8 @@ export default function ProjectExplorer() {
 				{data?.name}
 			</div>
 			<div className='content'>
-				{data?.children?.map((file) =>
-					file.type === 'file' ? (
-						<FileItem
-							deleteItem={deleteData}
-							id={file.id}
-							name={file.name}
-							key={file.id}
-						/>
-					) : (
-						<FileGroup
-							children={file.children}
-							deleteItem={deleteData}
-							name={file.name}
-							key={file.id}
-						/>
-					)
+				{data?.children && (
+					<FileList children={data.children} deleteDataById={deleteDataById} />
 				)}
 			</div>
 		</div>

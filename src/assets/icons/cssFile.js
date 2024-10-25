@@ -1,5 +1,3 @@
-import React from "react";
-
 export default () => (
   <svg
     className="icon icon-css-file"
