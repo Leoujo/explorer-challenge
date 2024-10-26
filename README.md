@@ -58,9 +58,9 @@ Note: This sketch was created using [excalidraw](https://excalidraw.com/).
 - Use TypeScript -> Ensures type safety and aligns with Carta's tech stack.
 - Use Custom hooks -> Encapsulate and reuse logic across components (useFetch.ts).
 - Implement the Context API -> Globalizes data and state management (DataProvider.tsx).
-- Follow SOLID Principles -> Emphasizes the Open-Closed Principle for extensibility (iconUtils.tsx).
+- Follow SOLID Principles -> Open-Closed Principle for extensibility (iconUtils.tsx).
 - Dependency Injection -> Breaks down components, shares logic using custom hooks and exposes globaly with the Context API.
-- Unit and Integration tests -> Implement unit and integration tests to validate functionality and serve as future documentation. (all the files inside __tests__)
+- Unit and Integration tests -> Implement unit and integration tests to validate functionality and serve as future documentation (all the files inside the "tests" folders).
 
 <div align="center">
 	<img src="src/assets/images/tests.png" />
