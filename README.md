@@ -1,5 +1,5 @@
 # Carta File Explorer Take-home
-The goal of this project is to replicate the Visual Studio Code Explorer UI with key functionalities using React and TypeScript. The solution is designed to be clean, testable and extendable.
+This project replicates the Visual Studio Code Explorer UI using React and TypeScript, prioritizing a clean, testable, and extendable design.
 
 <div align="center">
 	<img src="src/assets/images/carta-wallpaper.png" />
@@ -35,12 +35,11 @@ Install Yarn
 - Run `npm install -g yarn`
 
 ## Development 
-### Concept
-The goal is to create an application similar to the VS Code Explorer, where users can view a list of items and groups (containing collapsible items). Both individual items and groups can be deleted. This project follows clean code practices and includes unit and integration tests to ensure functionality and maintainability.
-
+### Goal
+Create a VS Code-like Explorer UI, featuring a list of files and groups (collapsible folders), each with delete functionality. The project should use clean code practices with unit and integration tests to ensure maintainability.
 
 ### Hands on
-To begin, I took a screenshot of the final result and sketch over it which components would exist.
+First step was taking a screenshot of the final result and sketch over it which components would exist.
 
 <div align="center">
 	<img src="src/assets/images/project-sketch.png" />
@@ -48,20 +47,20 @@ To begin, I took a screenshot of the final result and sketch over it which compo
 
 Note: This sketch was created using [excalidraw](https://excalidraw.com/).
 
-- FileItem -> A basic file card displaying the file name. It has a delete option (an "X" button) that appears on hover.
-- FileGroup -> Contains a card and a collapsible area. The card that shows a folder name and includes a delete option (an "X" button) that appears on hover as well. The collapsable area is a FileList.
-- FileList -> Renders an array of files as either FileItem or FileGroup based on the file type. It is used in both ProjectExplorer and within the collapsible area of FileGroup.
-- ProjectExplorer -> A table component that displays the project name and a FileList.
-- ProjectSide -> In a real application, this would show the content of the selected file, but given the fact this falls outside of this project's scope, this component was not implemented.
-- ProjectView -> The main component that includes ProjectExplorer and ProjectSide.
+- FileItem -> Displays a file with a hover delete button.
+- FileGroup -> Displays a folder with a collapsible area containing files; also has a hover delete button.
+- FileList -> Renders files as either FileItem or FileGroup.
+- ProjectExplorer -> A table with the project name and a FileList.
+- ProjectSide -> Displays the FileItem content (out of project scope, so it wasn't implemented).
+- ProjectView -> Main component combining ProjectExplorer and ProjectSide.
 
-##  Decisions
-- TypeScript ->  I decided to use TypeScript since Carta uses it as well. This allows the project to closely resemble real-life scenarios.
-- Custom hooks -> I used custom hooks to encapsulate and reuse stateful logic across components (like api data, loading and error handling). (useFetch.ts)
-- Context -> This project uses the ContextAPI, that wraps the whole custom hook logic and exposes it globally. (DataProvider.tsx)
-- SOLID Principles -> This project uses the O from SOLID (Open-closed principle), which means the code must be open  for extension and close for modification. (iconUtils.tsx)
-- Dependency Injection -> Used in many different ways: Break bigger components into small reusable ones (FileGroup), reusing logic through custom hooks (useFetch.ts) and injecting it globally through the context api (DataProvider.tsx)
-- Unit and Integration tests -> I implemented tests also for the project to closely resemble real-life scenarios. Now it's possible to confirm component functionality and interactions, enhances code quality, allow confident updates, and serves as documentation for future developers. (all the files inside __tests__)
+### Key Decisions
+- Use TypeScript -> Ensures type safety and aligns with Carta's tech stack.
+- Use Custom hooks -> Encapsulate and reuse logic across components (useFetch.ts).
+- Implement the Context API -> Globalizes data and state management (DataProvider.tsx).
+- Follow SOLID Principles -> Emphasizes the Open-Closed Principle for extensibility (iconUtils.tsx).
+- Dependency Injection -> Breaks down components, shares logic using custom hooks and exposes globaly with the Context API.
+- Unit and Integration tests -> Implement unit and integration tests to validate functionality and serve as future documentation. (all the files inside __tests__)
 
 <div align="center">
 	<img src="src/assets/images/tests.png" />
