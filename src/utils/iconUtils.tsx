@@ -15,7 +15,7 @@ const fileIconMap: Record<string, JSX.Element> = {
   '.json': <JsonFile />,
 };
 
-// Follows the Open/Closed SOLID principle (should be able to extend without modifying it)
+// Follows the Open/Closed SOLID principle (should be able to extend without modifying its structure
 export const getFileIcon = (name: string): JSX.Element => {
   const matchedIcon = Object.keys(fileIconMap).find((key) => name.includes(key));
   return matchedIcon ? fileIconMap[matchedIcon] : <DefaultFile />;

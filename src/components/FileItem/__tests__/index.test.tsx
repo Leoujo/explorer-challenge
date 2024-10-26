@@ -1,30 +1,14 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import { DataProvider } from "../../../context/DataProvider";
 import useFetch from "../../../hooks/useFetch";
 import FileItem from "..";
+import mockFetchData from "../../../mocks/tests/mockFetchData";
+import mockProps from "../../../mocks/tests/mockProps";
 
 // Mock the custom hook
 jest.mock('../../../hooks/useFetch');
 const mockedUseFetch = useFetch as jest.Mock;
-
-// Mock data and props
-const mockFetchData = {
-	data: [{
-		id: "123",
-		type: "project",
-		name: "my project",
-		children: [{ id: "1", type: "file", name: "file1.js" }],
-	}],
-	deleteDataById: jest.fn(),
-	isLoading: false,
-	error: null,
-};
-
-const mockProps = {
-	id: "123",
-	name: "unknown.txt",
-};
 
 // Utility function for rendering
 const renderComponent = (props = { ...mockProps }) => {
@@ -44,7 +28,7 @@ describe("FileItem - unit", () => {
 	});
 
 	it("should render default icon for unknown names", () => {
-		renderComponent();
+		renderComponent({ ...mockProps, name: "default.xyz" });
 
 		expect(screen.getByTestId('icon-default-file')).toBeInTheDocument();
 	});

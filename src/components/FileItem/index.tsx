@@ -6,10 +6,10 @@ interface FileItemProps {
 	name: string;
 }
 
-export default function FileItem({ name, id }: FileItemProps) {
+export default function FileItem({ id, name, }: FileItemProps) {
 	return (
-		<div className='flexBetween hoverColorChange hoverIconVisible' data-testid="file-item">
-			<div className='flexStart'>
+		<div className='flex-between hover-color-change hover-icon-visible' data-testid="file-item">
+			<div className='flex-start'>
 				{getFileIcon(name)}
 				<div>{name}</div>
 			</div>

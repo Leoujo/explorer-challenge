@@ -10,7 +10,7 @@ body,
   width: 100%;
 }
 
-.flexStart {
+.flex-start {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -18,30 +18,24 @@ body,
   cursor: pointer;
 }
 
-.flexBetween {
-  @extend .flexStart;
+.flex-between {
+  @extend .flex-start;
   justify-content: space-between;
 }
 
-.hoverColorChange {
+.hover-color-change {
   &:hover {
     color: white;
   }
 }
 
-.hoverIconVisible {
-  .iconOnHover {
+.hover-icon-visible {
+  .icon-on-hover {
     visibility: hidden;
   }
   &:hover {
-    .iconOnHover {
+    .icon-on-hover {
       visibility: visible;
     }
   }
-}
-
-.errorWarning {
-  color: red; 
-	font-weight: bold;
-	display: flex;
 }

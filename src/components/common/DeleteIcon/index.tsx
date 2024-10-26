@@ -1,5 +1,5 @@
-import X from "../../assets/icons/x";
-import { useDataContext } from "../../context/DataProvider";
+import X from "../../../assets/icons/x";
+import { useDataContext } from "../../../context/DataProvider";
 
 interface DeleteIconProps {
 	id: string;
@@ -15,7 +15,7 @@ export default function DeleteIcon({ id }: DeleteIconProps) {
 	};
 
 	return (
-		<div className="iconOnHover" onClick={handleDelete} role="button" tabIndex={0} aria-disabled={isLoading}>
+		<div className="icon-on-hover" onClick={handleDelete} role="button" tabIndex={0} aria-disabled={isLoading}>
 			{isLoading ? <span>...</span> : <X />}
 		</div>
 	);

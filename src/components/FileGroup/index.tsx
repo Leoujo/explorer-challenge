@@ -6,12 +6,12 @@ import { TreeNode } from '../../api';
 import FileGroupHeader from './FileGroupHeader';
 
 interface FileGroupProps {
-	name: string;
-	id: string;
 	children?: TreeNode[];
+	id: string;
+	name: string;
 }
 
-export default function FileGroup({ name, id, children }: FileGroupProps) {
+export default function FileGroup({ children, id, name, }: FileGroupProps) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const isOpenToggle = () => {

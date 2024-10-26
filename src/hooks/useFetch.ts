@@ -3,10 +3,10 @@ import api, { TreeNode } from "../api";
 
 export default function useFetch() {
 	const [data, setData] = useState<TreeNode | null>(null);
-	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | null>(null);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 
-	// Centralized async handler to manage loading and error states
+	// Handler loading and error states and call the given async function
 	const asyncHandler = async (apiCall: () => Promise<TreeNode>) => {
 		setIsLoading(true);
 		setError(null);
@@ -30,5 +30,5 @@ export default function useFetch() {
 		await asyncHandler(() => api.deleteById(id));
 	};
 
-	return { data, deleteDataById, isLoading, error };
+	return { data, error, isLoading, deleteDataById, };
 }
