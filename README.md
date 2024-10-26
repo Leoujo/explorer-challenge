@@ -1,4 +1,4 @@
-# Carta Explorer Challenge
+# Carta - Explorer Challenge
 This project replicates the Visual Studio Code Explorer UI using React and TypeScript, prioritizing a clean, testable, and extendable design.
 
 <div align="center">
