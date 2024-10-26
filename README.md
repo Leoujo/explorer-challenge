@@ -30,7 +30,7 @@ Install Node and NPM
 - Linux
   - See instructions for your distribution's package manager
 
-Install Yarn
+Install Yarn (recommended 1.22.19 version)
 
 - Run `npm install -g yarn`
 
