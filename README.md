@@ -1,6 +1,10 @@
 # Carta File Explorer Take-home
 The goal of this project is to replicate the Visual Studio Code Explorer UI with key functionalities using React and TypeScript. The solution is designed to be clean, testable and extendable.
 
+<div align="center">
+	<img src="https://raw.githubusercontent.com/Leoujo/explorer-challenge/refs/heads/main/src/assets/images/project-sketch.png?token=GHSAT0AAAAAACVOSRC7UAR2EYWQALCAFHQQZY453WQ" />
+</div>
+
 ## Quick start
 
 ```sh
@@ -46,7 +50,7 @@ Note: This sketch was created in [excalidraw](https://excalidraw.com/).
 
 ## Implementation
 - TypeScript ->  I decided to use TypeScript since Carta uses it as well. This allows the project to closely resemble real-life scenarios.
-- Custom hooks -> I used custom hooks to encapsulate and reuse stateful logic across components (like api data, loading and error handling).
-- Dependency Injection -> I used this to decouple component dependencies, which enhances modularity and maintainability.
-- SOLID Principles -> This project uses the O from SOLID (Open-closes principle), which means the code must be open  for extension and close for modification.
-- Unit and Integration tests -> I implemented tests also for the project to closely resemble real-life scenarios. Now it's possible to confirm component functionality and interactions, enhances code quality, allow confident updates, and serves as documentation for future developers.
+- Custom hooks -> I used custom hooks to encapsulate and reuse stateful logic across components (like api data, loading and error handling). (useFetch.ts)
+- Dependency Injection -> I used this to decouple component dependencies, which enhances modularity and maintainability. (DataProvider.tsx)
+- SOLID Principles -> This project uses the O from SOLID (Open-closes principle), which means the code must be open  for extension and close for modification. (iconUtils.tsx)
+- Unit and Integration tests -> I implemented tests also for the project to closely resemble real-life scenarios. Now it's possible to confirm component functionality and interactions, enhances code quality, allow confident updates, and serves as documentation for future developers. (all the files inside __tests__)
