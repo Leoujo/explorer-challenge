@@ -34,14 +34,19 @@ Install Yarn
 
 - Run `npm install -g yarn`
 
-## Brainstorm
-When developing this application, my first step was taking a screenshot of the final result and sketch over it which components would be present.
+## Development 
+### Concept
+The goal is to create an application similar to the VS Code Explorer, where users can view a list of items and groups (containing collapsible items). Both individual items and groups can be deleted. This project follows clean code practices and includes unit and integration tests to ensure functionality and maintainability.
+
+
+### Hands on
+To begin, I took a screenshot of the final result and sketch over it which components would exist.
 
 <div align="center">
 	<img src="src/assets/images/project-sketch.png" />
 </div>
 
-Note: This sketch was created in [excalidraw](https://excalidraw.com/).
+Note: This sketch was created using [excalidraw](https://excalidraw.com/).
 
 - FileItem -> A basic file card displaying the file name. It has a delete option (an "X" button) that appears on hover.
 - FileGroup -> Contains a card and a collapsible area. The card that shows a folder name and includes a delete option (an "X" button) that appears on hover as well. The collapsable area is a FileList.
@@ -50,9 +55,14 @@ Note: This sketch was created in [excalidraw](https://excalidraw.com/).
 - ProjectSide -> In a real application, this would show the content of the selected file, but given the fact this falls outside of this project's scope, this component was not implemented.
 - ProjectView -> The main component that includes ProjectExplorer and ProjectSide.
 
-## Implementation
+##  Decisions
 - TypeScript ->  I decided to use TypeScript since Carta uses it as well. This allows the project to closely resemble real-life scenarios.
 - Custom hooks -> I used custom hooks to encapsulate and reuse stateful logic across components (like api data, loading and error handling). (useFetch.ts)
-- Dependency Injection -> I used this to decouple component dependencies, which enhances modularity and maintainability. (DataProvider.tsx)
-- SOLID Principles -> This project uses the O from SOLID (Open-closes principle), which means the code must be open  for extension and close for modification. (iconUtils.tsx)
+- Context -> This project uses the ContextAPI, that wraps the whole custom hook logic and exposes it globally. (DataProvider.tsx)
+- SOLID Principles -> This project uses the O from SOLID (Open-closed principle), which means the code must be open  for extension and close for modification. (iconUtils.tsx)
+- Dependency Injection -> Used in many different ways: Break bigger components into small reusable ones (FileGroup), reusing logic through custom hooks (useFetch.ts) and injecting it globally through the context api (DataProvider.tsx)
 - Unit and Integration tests -> I implemented tests also for the project to closely resemble real-life scenarios. Now it's possible to confirm component functionality and interactions, enhances code quality, allow confident updates, and serves as documentation for future developers. (all the files inside __tests__)
+
+<div align="center">
+	<img src="src/assets/images/tests.png" />
+</div>
