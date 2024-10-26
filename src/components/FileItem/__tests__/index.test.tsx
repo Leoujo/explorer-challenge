@@ -20,7 +20,7 @@ const renderComponent = (props = { ...mockProps }) => {
 	);
 };
 
-describe("FileItem - unit", () => {
+describe("FileItem", () => {
 	it("should render the file name", () => {
 		renderComponent();
 

@@ -19,7 +19,7 @@ const renderComponent = (props = { ...mockProps, isOpen: false }) => {
 	);
 };
 
-describe("FileGroup - integration", () => {
+describe("FileGroup", () => {
 	it("should toggle FileList based on isOpen state", async () => {
 		renderComponent();
 

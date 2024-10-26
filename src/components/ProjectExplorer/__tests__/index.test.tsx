@@ -31,7 +31,7 @@ const renderComponentWithError = () => {
 	);
 };
 
-describe("Project Explorer - unit", () => {
+describe("Project Explorer", () => {
 	it("should render the project name in the header", async () => {
 		renderComponent();
 

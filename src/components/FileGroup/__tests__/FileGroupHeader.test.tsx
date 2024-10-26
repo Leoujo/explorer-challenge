@@ -20,7 +20,7 @@ const renderComponent = (props = { ...mockProps, isOpen: false }) => {
 	);
 };
 
-describe("FileGroupHeader - unit", () => {
+describe("FileGroupHeader", () => {
 	it("should display the correct icon based on isOpen state", () => {
 		renderComponent();
 

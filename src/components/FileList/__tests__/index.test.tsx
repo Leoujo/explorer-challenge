@@ -30,7 +30,7 @@ const renderComponent = (props = { children: mockFiles }) => {
 	);
 };
 
-describe("FileList - integration", () => {
+describe("FileList", () => {
 
 	it("should render FileItems components for each file", () => {
 		renderComponent();
