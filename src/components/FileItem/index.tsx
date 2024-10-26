@@ -8,7 +8,7 @@ interface FileItemProps {
 
 export default function FileItem({ name, id }: FileItemProps) {
 	return (
-		<div className='flexBetween hoverColorChange hoverIconVisible'>
+		<div className='flexBetween hoverColorChange hoverIconVisible' data-testid="file-item">
 			<div className='flexStart'>
 				{getFileIcon(name)}
 				<div>{name}</div>

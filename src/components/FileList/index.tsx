@@ -6,14 +6,14 @@ import FileItem from '../FileItem';
 import FileGroup from '../FileGroup';
 
 interface FileListProps {
-	children: TreeNode[];
+	children?: TreeNode[];
 }
 
 const FileList: React.FC<FileListProps> = ({ children }) => {
 
 	return (
-		<>
-			{children.map((file) =>
+		<div data-testid="file-list">
+			{children?.map((file) =>
 				file.type === FILE_TYPE ? (
 					<FileItem
 						id={file.id}
@@ -29,7 +29,7 @@ const FileList: React.FC<FileListProps> = ({ children }) => {
 					/>
 				)
 			)}
-		</>
+		</div>
 	);
 };
 

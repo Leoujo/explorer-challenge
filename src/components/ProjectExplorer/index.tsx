@@ -1,7 +1,7 @@
 import './index.scss';
 
-import FileList from '../FileList';
 import { useDataContext } from '../../context/DataProvider';
+import FileList from '../FileList';
 
 export default function ProjectExplorer() {
 	const { data, error } = useDataContext();
@@ -18,7 +18,7 @@ export default function ProjectExplorer() {
 					)}
 				</div>
 			</div>
-			{error && <p className='errorWarning'>{error}</p>}
+			{error && <p className='errorWarning' data-testid="error-warning">{error}</p>}
 		</>
 	);
 }

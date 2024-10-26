@@ -13,7 +13,7 @@ interface FileGroupHeaderProps {
 
 const FileGroupHeader: React.FC<FileGroupHeaderProps> = ({ isOpen, name, onToggle, id }) => {
 	return (
-		<div className='flexBetween hoverColorChange hoverIconVisible' onClick={onToggle}>
+		<div className='flexBetween hoverColorChange hoverIconVisible' data-testid="file-group-header" onClick={onToggle}>
 			<div className='flexStart'>
 				{isOpen ? <ArrowDown /> : <ArrowRight />}
 				<div>{name}</div>

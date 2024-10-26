@@ -19,7 +19,7 @@ export default function FileGroup({ name, id, children }: FileGroupProps) {
 	};
 
 	return (
-		<>
+		<div data-testid="file-group">
 			<FileGroupHeader
 				isOpen={isOpen}
 				name={name}
@@ -28,10 +28,10 @@ export default function FileGroup({ name, id, children }: FileGroupProps) {
 			/>
 
 			{isOpen && (
-				<div className='indent'>
+				<div className='indent' data-testid="file-list-container">
 					<FileList children={children || []} />
 				</div>
 			)}
-		</>
+		</div>
 	);
 }
