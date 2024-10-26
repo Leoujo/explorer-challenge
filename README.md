@@ -2,7 +2,7 @@
 The goal of this project is to replicate the Visual Studio Code Explorer UI with key functionalities using React and TypeScript. The solution is designed to be clean, testable and extendable.
 
 <div align="center">
-	<img src="https://raw.githubusercontent.com/Leoujo/explorer-challenge/refs/heads/main/src/assets/images/project-sketch.png?token=GHSAT0AAAAAACVOSRC7UAR2EYWQALCAFHQQZY453WQ" />
+	<img src="src/assets/images/carta-wallpaper.png" />
 </div>
 
 ## Quick start
@@ -36,7 +36,7 @@ Install Yarn
 When developing this application, my first step was taking a screenshot of the final result and sketch over it which components would be present.
 
 <div align="center">
-	<img src="https://raw.githubusercontent.com/Leoujo/explorer-challenge/refs/heads/main/src/assets/images/project-sketch.png?token=GHSAT0AAAAAACVOSRC7UAR2EYWQALCAFHQQZY453WQ" />
+	<img src="src/assets/images/project-sketch.png" />
 </div>
 
 Note: This sketch was created in [excalidraw](https://excalidraw.com/).
