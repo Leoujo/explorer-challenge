@@ -12,6 +12,8 @@ The goal of this project is to replicate the Visual Studio Code Explorer UI with
 yarn
 # Run the app
 yarn start
+# Run the tests
+yarn test
 # Zip solution
 tar -czvf [your initials]-CARTA.tar.gz --exclude="node_modules" .
 ```
