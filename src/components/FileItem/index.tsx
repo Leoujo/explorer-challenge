@@ -11,7 +11,7 @@ export default function FileItem({ id, name, }: FileItemProps) {
 		<div className='flex-between hover-color-change hover-icon-visible' data-testid="file-item">
 			<div className='flex-start'>
 				{getFileIcon(name)}
-				<div>{name}</div>
+				<p>{name}</p>
 			</div>
 			<DeleteIcon id={id} />
 		</div>

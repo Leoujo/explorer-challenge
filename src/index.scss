@@ -23,6 +23,11 @@ body,
   justify-content: space-between;
 }
 
+p, h1 {
+  margin: 0px;
+  font-size: medium;
+}
+
 .hover-color-change {
   &:hover {
     color: white;

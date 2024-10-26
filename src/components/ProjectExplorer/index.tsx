@@ -10,9 +10,9 @@ export default function ProjectExplorer() {
 	return (
 		<>
 			<div className='table'>
-				<div className='header'>
+				<h1 className='header'>
 					{data?.name}
-				</div>
+				</h1>
 				<div className='content'>
 					{data?.children && (
 						<FileList children={data.children} />

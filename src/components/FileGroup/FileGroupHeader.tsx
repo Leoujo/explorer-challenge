@@ -16,7 +16,7 @@ const FileGroupHeader: React.FC<FileGroupHeaderProps> = ({ id, isOpen, name, onT
 		<div className='flex-between hover-color-change hover-icon-visible' data-testid="file-group-header" onClick={onToggle}>
 			<div className='flex-start'>
 				{isOpen ? <ArrowDown /> : <ArrowRight />}
-				<div>{name}</div>
+				<p>{name}</p>
 			</div>
 			<DeleteIcon id={id} />
 		</div>
