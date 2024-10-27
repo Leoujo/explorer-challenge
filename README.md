@@ -14,6 +14,8 @@ yarn
 yarn start
 # Run the tests
 yarn test
+# Create prodution version folder
+yarn build
 # Zip solution
 tar -czvf [your initials]-CARTA.tar.gz --exclude="node_modules" .
 ```
