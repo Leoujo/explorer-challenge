@@ -1,10 +1,6 @@
 # Carta - Explorer Challenge
 This project replicates the Visual Studio Code Explorer UI using React and TypeScript, prioritizing a clean, testable, and extendable design.
 
-<div align="center">
-	<img src="src/assets/images/carta-wallpaper.png" />
-</div>
-
 ## Quick start
 
 ```sh
@@ -16,25 +12,7 @@ yarn start
 yarn test
 # Create prodution version folder
 yarn build
-# Zip solution
-tar -czvf [your initials]-CARTA.tar.gz --exclude="node_modules" .
 ```
-
-## Installing Node, NPM, and Yarn
-
-Install Node and NPM
-
-- Mac
-  - Install [Homebrew](https://docs.brew.sh/Installation)
-  - Run `brew install node`
-- Windows
-  - Download and run the [Node Windows installer](https://nodejs.org/en/download/)
-- Linux
-  - See instructions for your distribution's package manager
-
-Install Yarn (recommended 1.22.19 version)
-
-- Run `npm install -g yarn`
 
 ## Development 
 ### Goal
